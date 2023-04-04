@@ -6,12 +6,12 @@ import TasksContainer from '@components/TasksContainer/TasksContainer';
 const tasks = [
   {
     id: 1,
-    description: "Buy groceries",
+    content: "Buy groceries",
     completed: false,
   },
   {
     id: 2,
-    description: "Go to the gym",
+    content: "Go to the gym",
     completed: true,
   },
 ];
@@ -21,7 +21,7 @@ export default function TodoApp() {
     <>
       <Header />
       <AddTaskForm />
-      <TasksContainer tasks={tasks} />
+      <TasksContainer />
     </>
   );
 }
