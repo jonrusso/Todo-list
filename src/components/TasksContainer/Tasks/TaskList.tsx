@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './TaskList.module.css';
+import { Trash, Check } from '@phosphor-icons/react';
+import * as Checkbox from "@radix-ui/react-checkbox";
 
 export interface Task {
   id: number;
-  description: string;
+  content: string;
   completed: boolean;
 }
 
@@ -11,14 +13,28 @@ export interface TaskListProps {
   tasks: Task[];
 }
 
-export function TaskList( tasks : TaskListProps) {
+export function TaskList({ tasks }: TaskListProps) {
   return (
-    <div className={styles.taskList}>
+    <div className={styles.tasksWrapper}>
       {tasks.map((task) => (
-        <div key={task.id} className={styles.taskItem}>
-          <input type="radio" checked={task.completed} />
-          <span>{task.description}</span>
-          <button>Delete</button>
+        <div key={task.id} className={styles.list}>
+          <Checkbox.Root
+            checked={task.completed}
+            onCheckedChange={() => {}}
+            className={styles.checkbox}
+          >
+            <div className={styles.checkboxIndicator}>
+              <Checkbox.Indicator>
+                <Check size={24} className={styles.checkIcon} />
+              </Checkbox.Indicator>
+            </div>
+          </Checkbox.Root>
+          <span className={styles.taskContent}>{task.content}</span>
+          <button 
+            className={styles.trashIcon}>
+            <Trash size={24} 
+            />
+          </button>
         </div>
       ))}
     </div>
