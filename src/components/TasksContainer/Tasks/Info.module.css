@@ -1,21 +1,52 @@
 .infoWrapper {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
-  padding: 16px 0;
-  margin-top: 12.8rem;
+  max-width: 736px;
+  margin: 4rem;
 }
 
-.taskCreated,
-.taskConcluded {
+.taskCreated {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
+  gap: 5px;
 }
 
-.taskCreated strong {
-  color: #fff;
+.taskDone {
+  width: 111px;
+  height: 19px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.taskCreated strong,
+.taskDone strong {
+  width: 106px;
+  height: 17px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #4EA8DE;
+}
+
+.taskDone strong {
+  color: #8284FA;
+}
+
+.taskCreated span,
+.taskDone span  {
+  width: 25px;
+  height: 19px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 8px;
+  gap: 10px;
+  border-radius: 10px;
+  color: var(--gray-200);
+  background: var(--gray-400);
 }

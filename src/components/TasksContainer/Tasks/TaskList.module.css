@@ -1,0 +1,79 @@
+.tasksWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  max-width: 736px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 32px;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-400);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+[data-state="unchecked"].checkbox {
+  border: 3px solid var(--blue-dark);
+}
+
+[data-state="checked"].checkbox {
+  border: none;
+}
+
+.checkboxIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+[data-state="checked"] .checkboxIndicator {
+  background: var(--purple);
+}
+
+.checkIcon {
+  visibility: hidden;
+}
+
+[data-state="checked"] .checkIcon {
+  visibility: visible;
+}
+
+.taskContent {
+  width: 632px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: var(--gray-100);
+  flex-grow: 1;
+}
+
+.trashIcon {
+  background: none;
+  border: none;
+  color: var(--gray-300);
+}
+
+.trashIcon:hover {
+  color: var(--purple);
+  cursor: pointer;
+}
