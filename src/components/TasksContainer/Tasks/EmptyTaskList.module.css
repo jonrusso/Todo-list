@@ -1,0 +1,35 @@
+.emptyTaskList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 24px;
+  gap: 16px;
+  width: 736px;
+  height: 244px;
+  border-top: 1px solid var(--gray-400);
+  border-radius: 8px;
+}
+
+.clipBoardIcon {
+  width: 56px;
+  height: 56px;
+}
+
+.emptyTaskListText {
+  width: 340px;
+  height: 44px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  color: var(--gray-300);
+}
+
+.emptyTaskListText span:first-child {
+  color: var(--blue);
+}
+
+.emptyTaskListText span:last-child {
+  color: var(--purple);
+}
