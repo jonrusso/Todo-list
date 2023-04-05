@@ -20,7 +20,7 @@
   gap: 8px;
   width: 638px;
   height: 54px;
-  background: #262626;
+  background: var(--gray-500);
   border: 1px solid var(--gray-700);
   border-radius: 8px;
   flex: none;
@@ -43,7 +43,7 @@
   padding: 16px;
   width: 90px;
   height: 52px;
-  background: #1e6f9f;
+  background: var(--blue);
   border-radius: 8px;
   flex: none;
   flex-grow: 0;
@@ -53,7 +53,7 @@
 }
 
 .createTask:hover {
-  background: var(--purple-dark);
+  background: var(--blue-dark);
 }
 
 @media (max-width: 767px) {
