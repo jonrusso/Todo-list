@@ -3,32 +3,25 @@ import { Info } from './Tasks/Info';
 import { TaskList, Task } from './Tasks/TaskList';
 import styles from './TasksContainer.module.css';
 
-export default function TasksContainer() {
-  const created = 3;
-  const concluded = 1;
+type TaskCallBackId = (taskId: number) => void;
 
-  const tasks: Task[] = [
-    {
-      id: 1,
-      content: "Buy groceries",
-      completed: false,
-    },
-    {
-      id: 2,
-      content: "Go to the gym",
-      completed: true,
-    },
-    {
-      id: 3,
-      content: "Read 1 chapter of a book",
-      completed: false,
-    },
-  ];
+export type TaskCallBacks = {
+  onToggle: TaskCallBackId;
+  onDelete: TaskCallBackId;
+}
+
+interface TasksContainerProps extends TaskCallBacks {
+  tasks: Task[];
+}
+
+export default function TasksContainer({ tasks, onToggle, onDelete }:TasksContainerProps) {
+  const tasksCreated = tasks.length;
+  const tasksConcluded = tasks.filter(task => task.completed).length;
 
   return (
     <div className={styles.tasksContainer}>
-      <Info created={created} concluded={concluded} />
-      <TaskList tasks={tasks} />
+      <Info created={tasksCreated} concluded={tasksConcluded} />
+      <TaskList tasks={tasks} onToggle={onToggle} onDelete={onDelete} />
     </div>
   );
 }
