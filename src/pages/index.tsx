@@ -1,27 +1,40 @@
-import React from 'react';
+// App.tsx ou componente principal
+import React, { useState } from 'react';
+import { Task } from '@components/TasksContainer/Tasks/TaskList';
 import Header from '@components/Header';
 import AddTaskForm from '@components/AddTaskForm';
 import TasksContainer from '@components/TasksContainer/TasksContainer';
 
-const tasks = [
-  {
-    id: 1,
-    content: "Buy groceries",
-    completed: false,
-  },
-  {
-    id: 2,
-    content: "Go to the gym",
-    completed: true,
-  },
-];
-
 export default function TodoApp() {
+  const [tasks, setTasks] = useState<Task[]>([
+  ]);
+
+  const addTask = (content: string) => {
+    const newTask: Task = {
+      id: Date.now(),
+      content,
+      completed: false,
+    };
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+  };
+
+  const toggleTask = (taskId: number) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+  const deleteTask = (taskId: number) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  };
+
   return (
     <>
       <Header />
-      <AddTaskForm />
-      <TasksContainer />
+      <AddTaskForm onAddTask={addTask} />
+      <TasksContainer tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
     </>
   );
 }
