@@ -21,7 +21,8 @@ export function TaskList({ tasks }: TaskListProps) {
   return (
     <div className={styles.tasksWrapper}>
       {tasks.map((task) => (
-        <div key={task.id} className={styles.list}>
+        <div key={task.id} 
+        className={`${styles.list} ${task.completed ? styles.listCompleted : ''}`}>
           <Checkbox.Root
             checked={task.completed}
             onCheckedChange={() => {}}
@@ -33,7 +34,10 @@ export function TaskList({ tasks }: TaskListProps) {
               </Checkbox.Indicator>
             </div>
           </Checkbox.Root>
-          <span className={styles.taskContent}>{task.content}</span>
+          <span 
+            className={`${styles.taskContent} ${task.completed ? styles.taskContentCompleted : ''}`}>
+            {task.content}
+            </span>
           <button 
             className={styles.trashIcon}>
             <Trash size={24} 

@@ -8,7 +8,21 @@ export default function TasksContainer() {
   const concluded = 1;
 
   const tasks: Task[] = [
-    
+    {
+      id: 1,
+      content: "Buy groceries",
+      completed: false,
+    },
+    {
+      id: 2,
+      content: "Go to the gym",
+      completed: true,
+    },
+    {
+      id: 3,
+      content: "Read 1 chapter of a book",
+      completed: false,
+    },
   ];
 
   return (
