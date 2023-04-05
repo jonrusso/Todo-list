@@ -15,7 +15,7 @@ export function Info({ created, concluded }:InfoProps) {
       </div>
       <div className={styles.taskDone}>
         <strong>Concluded</strong>
-        <span>{concluded}</span>
+        <span>{concluded} de {created}</span>
       </div>
     </div>
   )
