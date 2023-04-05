@@ -14,7 +14,7 @@
   width: 100%;
   padding: 32px;
   background: var(--gray-500);
-  border: 1px solid var(--blue-dark);
+  border: 1px solid var(--blue);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
 }
@@ -31,13 +31,13 @@
   align-items: center;
   justify-content: center;
   background: transparent;
-  color: var(--white);
+  color: var(--gray-700);
   border-radius: 50%;
   cursor: pointer;
 }
 
 [data-state="unchecked"].checkbox {
-  border: 3px solid var(--blue-dark);
+  border: 3px solid var(--blue);
 }
 
 [data-state="checked"].checkbox {
@@ -52,7 +52,7 @@
 }
 
 [data-state="checked"] .checkboxIndicator {
-  background: var(--purple);
+  background: var(--green);
 }
 
 .checkIcon {
@@ -65,8 +65,8 @@
 
 .taskContent {
   width: 632px;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 300;
+  font-size: 24px;
   line-height: 140%;
   color: var(--gray-100);
   flex-grow: 1;
@@ -84,6 +84,6 @@
 }
 
 .trashIcon:hover {
-  color: var(--purple);
+  color: var(--danger);
   cursor: pointer;
 }
