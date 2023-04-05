@@ -1,13 +1,16 @@
 import React from 'react';
 import styles from './EmptyTaskList.module.css';
+import Image from 'next/image';
 
 export function EmptyTaskList() {
   return (
     <div className={styles.emptyTaskList}>
-      <img 
+      <Image 
         src='/clipboard.svg' 
         alt='clipboard-icon' 
         className={styles.clipBoardIcon}
+        width={56}
+        height={56}
        />
       <p 
       className={styles.emptyTaskListText}>
