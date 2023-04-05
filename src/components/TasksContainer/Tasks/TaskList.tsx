@@ -3,6 +3,7 @@ import styles from './TaskList.module.css';
 import { Trash, Check } from '@phosphor-icons/react';
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { EmptyTaskList } from './EmptyTaskList';
+import { TaskCallBacks } from '@components/TasksContainer/TasksContainer';
 
 export interface Task {
   id: number;
@@ -10,11 +11,11 @@ export interface Task {
   completed: boolean;
 }
 
-export interface TaskListProps {
+interface TaskListProps extends TaskCallBacks {
   tasks: Task[];
 }
 
-export function TaskList({ tasks }: TaskListProps) {
+export function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
   if (tasks.length === 0) {
     return <EmptyTaskList />;
   }
@@ -25,12 +26,15 @@ export function TaskList({ tasks }: TaskListProps) {
         className={`${styles.list} ${task.completed ? styles.listCompleted : ''}`}>
           <Checkbox.Root
             checked={task.completed}
-            onCheckedChange={() => {}}
+            onCheckedChange={() => onToggle(task.id)}
             className={styles.checkbox}
           >
             <div className={styles.checkboxIndicator}>
               <Checkbox.Indicator>
-                <Check size={24} className={styles.checkIcon} />
+                <Check 
+                  size={24} 
+                  className={styles.checkIcon} 
+                />
               </Checkbox.Indicator>
             </div>
           </Checkbox.Root>
@@ -39,7 +43,9 @@ export function TaskList({ tasks }: TaskListProps) {
             {task.content}
             </span>
           <button 
-            className={styles.trashIcon}>
+            className={styles.trashIcon}
+            onClick={() => onDelete(task.id)}
+            >
             <Trash size={24} 
             />
           </button>
