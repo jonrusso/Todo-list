@@ -14,7 +14,7 @@ export function EmptyTaskList() {
        />
       <p 
       className={styles.emptyTaskListText}>
-      ❗You don't have any tasks added yet. Add some tasks and organise your <span>to</span><span>do</span> items.
+      ❗You don&apos;t have any tasks added yet. Add some tasks and organise your <span>to</span><span>do</span> items. 
       </p>
     </div>
   );
