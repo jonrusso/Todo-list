@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './TaskList.module.css';
 import { Trash, Check } from '@phosphor-icons/react';
 import * as Checkbox from "@radix-ui/react-checkbox";
+import { EmptyTaskList } from './EmptyTaskList';
 
 export interface Task {
   id: number;
@@ -14,6 +15,9 @@ export interface TaskListProps {
 }
 
 export function TaskList({ tasks }: TaskListProps) {
+  if (tasks.length === 0) {
+    return <EmptyTaskList />;
+  }
   return (
     <div className={styles.tasksWrapper}>
       {tasks.map((task) => (
