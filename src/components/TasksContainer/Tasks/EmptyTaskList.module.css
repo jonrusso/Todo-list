@@ -26,10 +26,10 @@
   color: var(--gray-300);
 }
 
-.emptyTaskListText span:first-child {
+.emptyTaskListText span:nth-child(1) {
   color: var(--blue);
 }
 
-.emptyTaskListText span:last-child {
-  color: var(--purple);
+.emptyTaskListText span:nth-child(2){
+  color: var(--green);
 }
