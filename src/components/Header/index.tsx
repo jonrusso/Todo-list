@@ -7,7 +7,7 @@ export default function Header() {
     <header className={styles.header}>
       <>
         <Image
-          src="/logo-todo-list.svg"
+          src="/logo-todo-list.svg" priority
           alt="my-todo-logo"
           width={151}
           height={174} 
